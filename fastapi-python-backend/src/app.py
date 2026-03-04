@@ -29,6 +29,8 @@ def create_app() -> FastAPI:
     app.add_middleware(MetricsMiddleware)
     app.add_middleware(HttpLoggerMiddleware)
     app.add_middleware(GZipMiddleware, minimum_size=256)
+    app.add_middleware(RequestContextMiddleware)
+    app.add_middleware(RequestIdMiddleware)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=allowed_origins,
@@ -36,8 +38,6 @@ def create_app() -> FastAPI:
         allow_methods=['*'],
         allow_headers=['*'],
     )
-    app.add_middleware(RequestContextMiddleware)
-    app.add_middleware(RequestIdMiddleware)
 
     register_routes(app)
     register_error_handlers(app)

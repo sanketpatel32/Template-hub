@@ -28,7 +28,7 @@ def run() -> None:
 
     uvicorn.run(
         app,
-        host='0.0.0.0',
+        host=settings.HOST,
         port=settings.PORT,
         log_level='info' if settings.LOG_LEVEL == 'warn' else settings.LOG_LEVEL,
         access_log=False,

@@ -1,5 +1,7 @@
 from fastapi.testclient import TestClient
 
+PING_ENDPOINT = '/api/v1/ping'
+
 
 def test_returns_readiness_endpoint_in_docs(client: TestClient) -> None:
     response = client.get('/openapi.json')
@@ -10,7 +12,7 @@ def test_returns_readiness_endpoint_in_docs(client: TestClient) -> None:
 
 
 def test_returns_pong_from_api_v1_ping(client: TestClient) -> None:
-    response = client.get('/api/v1/ping')
+    response = client.get(PING_ENDPOINT)
 
     assert response.status_code == 200
     assert response.json() == {
@@ -33,10 +35,10 @@ def test_exposes_openapi_docs_endpoints(client: TestClient) -> None:
 
 def test_rate_limits_after_threshold(client: TestClient) -> None:
     for _ in range(100):
-        response = client.get('/api/v1/ping')
+        response = client.get(PING_ENDPOINT)
         assert response.status_code == 200
 
-    blocked_response = client.get('/api/v1/ping')
+    blocked_response = client.get(PING_ENDPOINT)
 
     assert blocked_response.status_code == 429
     assert blocked_response.json()['title'] == 'Too Many Requests'

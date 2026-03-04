@@ -15,7 +15,7 @@ def _create_fake_logger() -> logging.Logger:
 
 class SuccessfulServer:
     async def close(self) -> None:
-        return None
+        await asyncio.sleep(0)
 
 
 class HungServer:

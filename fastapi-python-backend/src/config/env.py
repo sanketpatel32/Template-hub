@@ -13,6 +13,7 @@ class Settings(BaseSettings):
         extra='ignore',
     )
 
+    HOST: str = '127.0.0.1'
     PORT: int = Field(default=3000, ge=1)
     NODE_ENV: Literal['development', 'test', 'production'] = 'development'
     CORS_ORIGIN: str = '*'

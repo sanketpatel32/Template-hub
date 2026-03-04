@@ -16,6 +16,10 @@ Each template lives in its own folder and includes its own runtime scripts, envi
 | Template | Primary Stack | Status | Path |
 |---|---|---|---|
 | `express-ts-bun-backend` | Express 5 + TypeScript + Bun | Active | [`./express-ts-bun-backend`](./express-ts-bun-backend) |
+| `fastapi-python-backend` | FastAPI + Python | Active | [`./fastapi-python-backend`](./fastapi-python-backend) |
+| `fastify-ts-bun-backend` | Fastify 5 + TypeScript + Bun | Active | [`./fastify-ts-bun-backend`](./fastify-ts-bun-backend) |
+| `nest-ts-bun-backend` | NestJS 11 + TypeScript + Bun | Active | [`./nest-ts-bun-backend`](./nest-ts-bun-backend) |
+
 
 More templates can be added over time without changing this root structure.
 
