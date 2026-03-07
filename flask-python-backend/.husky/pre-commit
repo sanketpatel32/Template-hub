@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -e
+
+python -m ruff check .
+python -m ruff format --check .
+python -m mypy src tests
+python -m pytest
