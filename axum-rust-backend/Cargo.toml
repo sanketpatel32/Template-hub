@@ -1,0 +1,30 @@
+[package]
+name = "axum-rust-backend"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.7", features = ["macros"] }
+tokio = { version = "1", features = ["full"] }
+tower = { version = "0.5", features = ["limit", "util"] }
+tower-http = { version = "0.5", features = ["cors", "trace", "compression-full", "set-header"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt", "json"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+http = "1"
+once_cell = "1"
+prometheus = "0.13"
+chrono = { version = "0.4", features = ["serde"] }
+utoipa = { version = "4", features = ["axum_extras", "chrono", "uuid"] }
+utoipa-swagger-ui = { version = "7", features = ["axum"] }
+
+[dev-dependencies]
+reqwest = { version = "0.12", features = ["json"] }
+serial_test = "3"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
