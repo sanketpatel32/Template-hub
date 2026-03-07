@@ -1,0 +1,1 @@
+"""Flask middleware/hook registration."""
