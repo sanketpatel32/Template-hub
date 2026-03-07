@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: springboot-java-backend
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+
+server:
+  port: ${PORT:8080}
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+  compression:
+    enabled: true
+
+springdoc:
+  api-docs:
+    path: /openapi.json
+  swagger-ui:
+    path: /swagger-ui
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+
+app:
+  port: ${PORT:8080}
+  env: ${APP_ENV:development}
+  cors-origin: ${CORS_ORIGIN:*}
+  rate-limit-window-ms: ${RATE_LIMIT_WINDOW_MS:60000}
+  rate-limit-max: ${RATE_LIMIT_MAX:120}
+  log-level: ${LOG_LEVEL:INFO}
+  log-pretty: ${LOG_PRETTY:true}
+  trust-proxy: ${TRUST_PROXY:false}
+  shutdown-timeout-ms: ${SHUTDOWN_TIMEOUT_MS:30000}
+  metrics-enabled: ${METRICS_ENABLED:true}
+  trace-enabled: ${TRACE_ENABLED:true}
