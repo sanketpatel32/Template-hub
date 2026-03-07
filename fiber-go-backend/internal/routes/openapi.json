@@ -1,0 +1,15 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "fiber-go-backend",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {"get": {"responses": {"200": {"description": "OK"}}}},
+    "/ready": {"get": {"responses": {"200": {"description": "Ready"}, "503": {"description": "Unavailable"}}}},
+    "/metrics": {"get": {"responses": {"200": {"description": "Prometheus metrics"}}}},
+    "/api/v1/ping": {"get": {"responses": {"200": {"description": "pong"}}}},
+    "/openapi.json": {"get": {"responses": {"200": {"description": "OpenAPI"}}}},
+    "/docs": {"get": {"responses": {"200": {"description": "Swagger UI"}}}}
+  }
+}
