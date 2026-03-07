@@ -1,0 +1,3 @@
+#!/bin/sh
+set -e
+./gradlew spotlessCheck test || gradle spotlessCheck test
