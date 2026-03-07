@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+set -e
+cargo fmt --check
+cargo clippy -- -D warnings
+cargo test
