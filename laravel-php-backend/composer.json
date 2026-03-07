@@ -1,0 +1,31 @@
+{
+    "name": "template-hub/laravel-php-backend",
+    "description": "API-first Laravel-style PHP backend template with typed errors, observability, and production baseline middleware.",
+    "type": "project",
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "bootstrap/helpers.php",
+            "app/Errors/HttpErrors.php"
+        ]
+    },
+    "scripts": {
+        "dev": "php -S 0.0.0.0:${APP_PORT:-8080} -t public public/index.php",
+        "start": "@dev",
+        "test": "php tests/run.php",
+        "lint": "find app config routes tests -name '*.php' -print0 | xargs -0 -n1 php -l",
+        "format": "php -l public/index.php",
+        "analyze": "php tests/static-analysis.php"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

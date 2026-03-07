@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+$command = $argv[1] ?? 'help';
+
+if ($command === 'serve') {
+    $port = getenv('APP_PORT') ?: '8080';
+    passthru(sprintf('php -S 0.0.0.0:%s -t public public/index.php', escapeshellarg($port)));
+    exit(0);
+}
+
+echo "Available commands:\n";
+echo "  php artisan serve\n";
